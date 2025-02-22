@@ -1,0 +1,10 @@
+name: JkMOD
+author: Gabriel_lrx
+version: 1.0
+main: fr.jkmc.mod.Mod
+api-version: 1.13
+commands:
+  mod:
+    description: Staff CMD.
+  ss:
+    description: Staff CMD.

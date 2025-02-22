@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
+import org.apache.commons.codec.binary.Base64;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -103,6 +107,7 @@ public class CustomItemStack extends ItemStack {
         this.setDurability((short)data);
         return this;
     }
+
 
 
     public CustomItemStack setUnbreakable() {

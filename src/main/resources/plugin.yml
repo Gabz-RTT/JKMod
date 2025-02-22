@@ -8,3 +8,5 @@ commands:
     description: Staff CMD.
   ss:
     description: Staff CMD.
+  test:
+    description: ADMIN CMD.

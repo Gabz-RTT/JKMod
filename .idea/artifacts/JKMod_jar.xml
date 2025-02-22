@@ -3,6 +3,7 @@
     <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="JKMod.jar">
       <element id="module-output" name="JKMod" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/authlib-1.5.21.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

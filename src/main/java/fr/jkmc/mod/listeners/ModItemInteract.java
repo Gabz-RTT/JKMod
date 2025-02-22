@@ -1,8 +1,9 @@
 package fr.jkmc.mod.listeners;
 
 import fr.jkmc.mod.Mod;
-import fr.jkmc.mod.guis.SSGui;
 import fr.jkmc.mod.manager.PlayerModManager;
+import fr.jkmc.mod.utils.guimanager.PlayerMenuUtility;
+import fr.jkmc.mod.utils.guis.SSMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -48,7 +49,10 @@ public class ModItemInteract implements Listener {
                 break;
 
             case BOOK:
-                new SSGui(player, target);
+                PlayerMenuUtility playerMenuUtility = Mod.getPlayerMenuUtility(player);
+                playerMenuUtility.setPlayerToSS(target);
+
+                new SSMenu(Mod.getPlayerMenuUtility(player)).open();
                 break;
 
 
@@ -98,7 +102,7 @@ public class ModItemInteract implements Listener {
             case LIME_CONCRETE_POWDER:
                 PlayerModManager mod = PlayerModManager.getFromPlayer(player);
                 mod.setVanished(!mod.isVanished());
-                player.sendMessage(mod.isVanished() ? "§c§lJKSTAFF §f┃ §aVous êtes Modtenance Invisible." : "§c§lJKSTAFF §f┃ §cAttention, Vous êtes de nouveau Visible !");
+                player.sendMessage(mod.isVanished() ? "§c§lJKSTAFF §f┃ §aVous êtes Maintenant Invisible." : "§c§lJKSTAFF §f┃ §cAttention, Vous êtes de nouveau Visible !");
                 break;
 
             default: break;

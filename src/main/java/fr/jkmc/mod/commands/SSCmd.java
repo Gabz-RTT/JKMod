@@ -1,8 +1,8 @@
 package fr.jkmc.mod.commands;
 
 import fr.jkmc.mod.Mod;
-import fr.jkmc.mod.guis.SSGui;
-import fr.jkmc.mod.manager.PlayerModManager;
+import fr.jkmc.mod.utils.guimanager.PlayerMenuUtility;
+import fr.jkmc.mod.utils.guis.SSMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -29,11 +29,13 @@ public class SSCmd implements CommandExecutor {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null || !target.isOnline()) {
-                player.sendMessage(ChatColor.RED + "Le joueur '" + args[0] + "' n'est pas connecté !");
+                player.sendMessage("§c§lJKSTAFF §f┃ §cLe joueur '" + args[0] + "' n'est pas connecté !");
                 return true;
             }
+            PlayerMenuUtility playerMenuUtility = Mod.getPlayerMenuUtility(player);
+            playerMenuUtility.setPlayerToSS(target);
 
-            new SSGui(player, target).open(player);
+            new SSMenu(Mod.getPlayerMenuUtility(player)).open();
             return true;
         }
         return false;
